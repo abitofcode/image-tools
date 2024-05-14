@@ -58,6 +58,8 @@ jpylyzer *.jp2 | grep '<isValid format="jp2">True</isValid>'
 # Removing alpha channel
 convert ALPHA_ISSUE_FILE.tif -alpha off  ALPHA_ISSUE_FIXED.tif
 # Converting colorspace to sRGB
+convert cmyk.tif -colorspace sRGB new_rgb_file.tif
+# Converting colorspace to sRGB using a profile (some profiles loaded into /icc/ directory)
 convert cmyk.tif -profile /icc/sRGB_v4_ICC_preference.icc new_rgb_file.tif
 # Convert 16 bit image to 8 bit
 convert file_16_bit.tif -depth 8 file_8_bit.tif
