@@ -1,5 +1,5 @@
 # https://wiki.harvard.edu/confluence/display/DigitalImaging/Installing+OpenJPEG+on+Windows+10%2C+Linux%2C+and+MacOS
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 # Create a user (on ubuntu)
 # RUN useradd -rm -d /app -s /bin/bash -g root -G sudo -u 1001 app
@@ -58,8 +58,12 @@ RUN export LD_LIBRARY_PATH=/usr/local/lib
 # Want to run Grok Image Compression on a Mac? It can be installed via Homebrew with the terminal command: brew install grokj2k
 #ldconfig
 
-RUN apt-get install -y gcc-10 g++-10 cpp-10
-RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100 --slave /usr/bin/g++ g++ /usr/bin/g++-10 --slave /usr/bin/gcov gcov /usr/bin/gcov-10
+#RUN apt-get install -y gcc-10 g++-10 cpp-10
+RUN apt-get install -y gcc-11 g++-11 cpp-11
+
+#RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100 --slave /usr/bin/g++ g++ /usr/bin/g++-10 --slave /usr/bin/gcov gcov /usr/bin/gcov-10
+RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 100 --slave /usr/bin/g++ g++ /usr/bin/g++-11 --slave /usr/bin/gcov gcov /usr/bin/gcov-11
+
 
 WORKDIR /install/compression
 RUN wget https://github.com/GrokImageCompression/grok/archive/master.zip
