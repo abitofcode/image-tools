@@ -10,7 +10,7 @@ The image is available on dockerhub at abitofcode/image-tools or you can build y
 # Create a new builder
 docker buildx create --use
 # Run a multiplatform build and push it to a repo
-docker build --push --platform linux/amd64,linux/arm64/v8 --tag abitofcode/image-tools:1 .
+docker build --push --platform linux/amd64,linux/arm64/v8 --tag abitofcode/image-tools .
 ```
 
 ## Running the image
